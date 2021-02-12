@@ -66,6 +66,11 @@ class VideoController extends Controller
     {
         $model = new video();
 
+        $file = UploadedFile::getInstanceByName('video');
+        echo '<pre>';
+        var_dump($file);
+        echo '</pre>';
+        exit;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->video_id]);
         }
