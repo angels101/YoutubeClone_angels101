@@ -5,6 +5,10 @@
 
 use backend\assets\AppAsset;
 use yii\helpers\Html;
+use yii\bootstrap4\Nav;
+use yii\bootstrap4\NavBar;
+use yii\widgets\Breadcrumbs;
+use common\widgets\Alert;
 
 AppAsset::register($this);
 ?>
@@ -19,16 +23,19 @@ AppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body class="blank">
+<body>
 <?php $this->beginBody() ?>
 
-<div class="container">
-
-    <div class="wrap">
-        <?= $content ?>
-    </div>
-
+<div class="wrap h-100 d-flex flex-column">
+        <div class="wrap h-100 d-flex flex-column">
+        <?php echo $this->render('_header')?>
+    
+                <?php echo $content ?>
+            </div>
+   
 </div>
+
+
 
 <?php $this->endBody() ?>
 </body>
